@@ -1,7 +1,9 @@
 <h1>Mushrooms!!!</h1>
 
+<input type="text" autofocus="true" placeholder="search by name" ng-model="searchText">
+
 <!-- shroom refers to an individual item (object) in the array of objects which we bound to $scope as 'shrooms in mushroomCtrl' -->
-<div ng-repeat="shroom in shrooms">
+<div ng-repeat="shroom in shrooms | filter: {name: searchText}">
         
         <h1>{{shroom.name}}</h1>
         <h3>edible: {{shroom.edible}}</h3>
