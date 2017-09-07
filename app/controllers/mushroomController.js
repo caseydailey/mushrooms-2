@@ -9,6 +9,14 @@
 // here we're injecting the factory by the name we give it when we register it. not the file name.
 app.controller("mushroomCtrl", function($scope, mushroomFactory){
 
+    // using mushroomFactory, gets the mushroom data
+    // and binds it to $scope
+    const showMushrooms = function(){
+        mushroomFactory.getMushrooms()
+            .then(data => console.log("got the data:", data))
+            .catch(error => console.log(error));
+    };
 
+    showMushrooms();
 
 });
