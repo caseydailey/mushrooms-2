@@ -13,7 +13,10 @@ app.controller("mushroomCtrl", function($scope, mushroomFactory){
     // and binds it to $scope
     const showMushrooms = function(){
         mushroomFactory.getMushrooms()
-            .then(data => console.log("got the data:", data))
+            // bind the data to $scope as the property 'shrooms'
+            // we can now refer to 'shrooms' in our template and angular knows it's this array of objects
+            // so we can ng-repeat over it.
+            .then(data => $scope.shrooms = data)
             .catch(error => console.log(error));
     };
 
