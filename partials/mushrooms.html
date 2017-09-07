@@ -1,9 +1,13 @@
 <h1>Mushrooms!!!</h1>
 
+
 <input type="text" autofocus="true" placeholder="search by name" ng-model="searchText">
 
+<input type="radio" value="true" ng-model="edibility">edible</input>
+<input type="radio" value="false" ng-model="edibility">inedible</input>
+
 <!-- shroom refers to an individual item (object) in the array of objects which we bound to $scope as 'shrooms in mushroomCtrl' -->
-<div ng-repeat="shroom in shrooms | filter: {name: searchText}">
+<div ng-repeat="shroom in shrooms | filter: {name: searchText, edible: edibility}">
         
         <h1>{{shroom.name}}</h1>
         <h3>edible: {{shroom.edible}}</h3>
